@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -7,7 +8,7 @@
  */
 
 import React from 'react';
-import type {Node} from 'react';
+
 import {
   SafeAreaView,
   ScrollView,
@@ -16,96 +17,77 @@ import {
   Text,
   useColorScheme,
   View,
+  Image,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
-
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+    <>
+      <View>
+        <View style={{flexDirection: 'row'}}>
+          <Image
+            style={styles.banners}
+            source={require('./assets/img/bg.jpg')}
+          />
         </View>
-      </ScrollView>
-    </SafeAreaView>
+        <View style={styles.contenedor}>
+          <Text style={styles.titulo}>Qué hacer en Paris</Text>
+          <ScrollView horizontal={true}>
+            <View>
+              <Image
+                style={styles.ciudad}
+                source={require('./assets/img/actividad1.jpg')}
+              />
+            </View>
+            <View>
+              <Image
+                style={styles.ciudad}
+                source={require('./assets/img/actividad2.jpg')}
+              />
+            </View>
+            <View>
+              <Image
+                style={styles.ciudad}
+                source={require('./assets/img/actividad3.jpg')}
+              />
+            </View>
+            <View>
+              <Image
+                style={styles.ciudad}
+                source={require('./assets/img/actividad4.jpg')}
+              />
+            </View>
+            <View>
+              <Image
+                style={styles.ciudad}
+                source={require('./assets/img/actividad5.jpg')}
+              />
+            </View>
+          </ScrollView>
+        </View>
+      </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  banners: {
+    height: 250,
+    flex: 1,
   },
-  sectionTitle: {
+  contenedor: {
+    marginHorizontal: 20,
+  },
+  titulo: {
+    fontWeight: 'bold',
     fontSize: 24,
-    fontWeight: '600',
+    marginVertical: 20,
+    color: '#3d4042',
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+  ciudad: {
+    with: 250,
+    height: 300,
+    marginRight: 10,
   },
 });
 
